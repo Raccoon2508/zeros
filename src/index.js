@@ -1,4 +1,4 @@
-module.exports = function function zeros(expression){
+module.exports = function zeros(expression){
 
 
 let intStr=expression;
