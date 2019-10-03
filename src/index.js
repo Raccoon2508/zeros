@@ -16,55 +16,50 @@ for(let i=0; i<intStr.length;i++){
   
   if(intStr[i+1]=="*"||!intStr[i+1]){
     
-    let total=getZerosCount(number,factFlag);
-  
-   
+    let total=zerosAloneFact(number,factFlag);
     totalCounterTwoFive[0]+=total[0];
     totalCounterTwoFive[1]+=total[1];
-    console.log(totalCounterTwoFive)
     factFlag=0;
     number='';
     
     }
 }
 
-function getZerosCount(number,factFlag){ 
+function zerosAloneFact(number,factFlag){
+  let counter=[0,0]
+  counter[0]+=intakes(number,2,factFlag);
+  counter[1]+=intakes(number,5,factFlag);
+  
+  
+  
+function intakes(number,intake,factFlag){
 
-let prime;
-let counter=[0,0];
-let intakes;
+let count=0;
 
-if(number%2==0&&factFlag==2){
-  counter[0]=inputs(number,2);
-    counter[1]=inputs(number,5);
-}else{counter[1]=inputs(number,5);}
-
-
-
-function inputs(number,input){
+for(let i=number;i>0;i=i-factFlag){
+ 
+  if((i/intake^0)===i/intake){
+    let num=i;
+   
+    do{
+      num=num/intake;
+      count++;
+    }while((num/intake^0)==num/intake)
     
-    let intakes=1;
-    let counter=0;
-    while(intakes!=0){
-  intakes=Math.floor(number/input);
-  input*=input;
-  counter+=intakes;
-  }
-  return counter;
-  }    
-
-return counter;
+}}
+return count;
+}  
+    
+return counter; 
 }
 
+console.log(totalCounterTwoFive);
 
-
-if(totalCounterTwoFive[0]<=totalCounterTwoFive[1]){
-  return totalCounterTwoFive[0];
-  }else{
-  return totalCounterTwoFive[1];  
-  }
+if(totalCounterTwoFive[0]<totalCounterTwoFive[1]){
+return totalCounterTwoFive[0];
+}else{
+return totalCounterTwoFive[1];
+}
 }
 
-
-zeros('9!!*10!!*7!!')
 
